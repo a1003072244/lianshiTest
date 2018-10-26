@@ -43,7 +43,9 @@
     NSLog(@"\n");
     person.eatAndSleep3(@"方便面",1);
     
-    UIView.zhh_viewWithFrame(10,20,200,200).zhh_setBackgroundColor([UIColor blueColor]).zhh_setCornerRadius(10).zhh_setAlpha(0.8).zhh_setSuperView(self.view).zhh_setTapAction(^(UIView *view){
+    
+    __weak typeof(self)weakself = self;
+    UIView.zhh_viewWithFrame(10,20,200,200).zhh_setBackgroundColor([UIColor blueColor]).zhh_setCornerRadius(10).zhh_setAlpha(0.8).zhh_setSuperView(weakself.view).zhh_setTapAction(^(UIView *view){
         [UIView animateWithDuration:2 delay:0 usingSpringWithDamping:50 initialSpringVelocity:20 options:UIViewAnimationOptionLayoutSubviews animations:^{
             view.transform = CGAffineTransformMakeTranslation(arc4random()%200, arc4random()%300);
         } completion:nil];
